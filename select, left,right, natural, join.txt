@@ -1,0 +1,24 @@
+#Select rodzaj, avg(udzwig) from kreatura group by rodzaj;
+#Select rodzaj, avg(dataUr) from kreatura group by rodzaj;
+#Select rodzaj, avg(udzwig) from kreatura group by rodzaj;
+
+#select rodzaj, sum(waga) from zasob group by rodzaj;
+#select nazwa, avg(waga) from zasob where ilosc >= 4 group by nazwa having avg(waga) > 10;
+#select count(distinct(nazwa)), rodzaj from zasob where ilosc > 1 group by rodzaj;
+#select count(distinct(nazwa)), rodzaj from zasob group by rodzaj having sum(ilosc) > 1;
+
+#(to samo)
+#select * from kreatura, ekwipunek where kreatura.idKreatury=ekwipunek.idKreatury;
+#select * from kreatura INNER JOIN ekwipunek on kreatura.idKreatury=ekwipunek.idKreatury;
+
+#select k.nazwa, sum(ilosc) from kreatura k INNER JOIN ekwipunek e ON k.idKreatury=e.idkreatury group by(nazwa);
+
+#(left right JOIN)
+#select k.nazwa,k.idkreatury,e.idKreatury from kreatura k LEFT JOIN ekwipunek e ON k.idKreatury=e.idkreatury;
+#select k.nazwa,k.idkreatury,e.idKreatury from kreatura k RIGHT JOIN ekwipunek e ON k.idKreatury=e.idkreatury;
+#select k.nazwa,k.idkreatury,e.idKreatury from kreatura k LEFT JOIN ekwipunek e ON k.idKreatury=e.idkreatury WHERE e.idkreatury is NULL;
+#select nazwa,idKreatury from kreatura WHERE idKreatury not in (Select idKreatury from ekwipunek WHERE idKreatury is not NULL);
+#(z³¹czenie tabel po przez dodanie aliasów)
+#(dodawanie aliasów czyli dodanie nazwy po wybraniu tabeli\kolumny)
+#select * from kreatura k1,kreatura k2 where k1.idKreatury=k2.idkreatury;
+#select*from kreatura NATURAL JOIN ekwipunek;
