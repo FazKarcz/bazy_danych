@@ -4,12 +4,12 @@
 #left join uczestnicy u on k.idkreatury=u.id_uczestnika
 #WHERE u.id_uczestnika is NULL;
 
-#(przyk³ad u¿ycia group_concat)
+#(przykÂ³ad uÂ¿ycia group_concat)
 #select rodzaj, group_concat(nazwa) 
 #from kreatura group by rodzaj
-#(przyk³ad dzia³ania ifnull)
+#(przykÂ³ad dziaÂ³ania ifnull)
 #select ifnull(idKreatury, 'brak nazwy kreatury') from ekwipunek order by idKreatury desc
-#albo drugi sposób z "if"
+#albo drugi sposÃ³b z "if"
 #select if(idKreatury is Null, 'brak nazwy kreatury', idKreatury) from ekwipunek order by idKreatury desc
 #select w.nazwa,SUM(e.ilosc) from wyprawa w
 #inner join uczestnicy u on w.id_wyprawy=u.id_wyprawy
@@ -40,3 +40,7 @@
 #select s.nazwa, count(ew.sektor) from sektor s
 #left join etapy_wyprawy ew on ew.sektor=s.id_sektora
 #group by s.nazwa 
+
+select kreatura.nazwa, if(count(id_uczestnika)>0,'bral udzial','nie bral udzialu')
+from kreatura left join uczestnicy on kreatura.idKreatury=uczestnicy.id_uczestnika
+group by nazwa
