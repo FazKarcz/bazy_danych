@@ -44,3 +44,6 @@
 select kreatura.nazwa, if(count(id_uczestnika)>0,'bral udzial','nie bral udzialu')
 from kreatura left join uczestnicy on kreatura.idKreatury=uczestnicy.id_uczestnika
 group by nazwa
+
+#select idEtapu, idWyprawy, length(dziennik) from etapy_wyprawy having SUM(length(dziennik))<400
+
