@@ -1,0 +1,9 @@
+#select nazwisko from pracownik order by nazwisko;
+#select data_urodzenia,imie,nazwisko,pensja from pracownik where data_urodzenia > '1979-01-01';
+#select * from pracownik where pensja > 3500 and pensja < 5000;
+#select towar,ilosc from stan_magazynowy where ilosc > 10;
+select nazwa towaru
+#select pelna_nazwa from klient;
+#select data_zamowienia from zamowienie order by data_zamowienia desc limit 10;
+#select imie, pensja from pracownik order by pensja limit 5;
+#select nazwa_towaru,cena_zakupu from towar where nazwa_towaru not like 'A%'order by cena_zakupu desc limit 10;
