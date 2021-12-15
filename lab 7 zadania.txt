@@ -1,0 +1,22 @@
+#(Zad.1)
+#select nazwa, idKreatury from kreatura where idKreatury not in (select distinct id_uczestnika from uczestnicy);
+
+#select w.nazwa, sum(e.ilosc) from wyprawa w inner join uczestnicy u on w.id_wyprawy=u.id_wyprawy inner join ekwipunek e on u.id_uczestnika=e.idKreatury group by w.nazwa;
+
+#(Zad.2)
+
+#Select w.nazwa, count(u.id_uczestnika), group_concat(k.nazwa) from wyprawa w inner join uczestnicy u on w.id_wyprawy=u.id_wyprawy inner join kreatura k on u.id_uczestnika=k.idKreatury group by w.nazwa;
+
+#Select et.kolejnosc, s.nazwa, k.nazwa from sektor s inner join etapy_wyprawy et on et.sektor=s.id_sektora inner join wyprawa w on et.idwyprawy=w.id_wyprawy inner join kreatura k on k.idKreatury=w.kierownik order by w.data_rozpoczecia, et.kolejnosc;
+
+#(Zad.3)
+
+#Select s.nazwa, count(et.sektor) as 'sektor' from sektor s left join etapy_wyprawy et on et.sektor=s.id_sektora group by s.nazwa
+
+#Select k.nazwa, if(count(u.id_uczestnika)>0, 'By³', 'Nie by³') 'uczestnictwo' from kreatura k left join uczestnicy u on k.idKreatury=u.id_uczestnika group by k.nazwa;
+
+#(Zad.4)
+
+#Select w.nazwa, if(sum(length(et.dziennik))<400 , sum(length(et.dziennik)), NULL) as 'dziennik' from wyprawa w inner join etapy_wyprawy et on et.idWyprawy=w.id_wyprawy group by w.nazwa;
+
+#select u.id_wyprawy as'wyprawa',sum(e.ilosc*z.waga)/count(distinct u.id_uczestnika) as 'srednia noszona' from uczestnicy u left join ekwipunek e on u.id_uczestnika=e.idKreatury left join zasob z on e.idZasobu=z.idZasobu group by u.id_wyprawy;
