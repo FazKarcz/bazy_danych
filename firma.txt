@@ -6,4 +6,6 @@ select nazwa towaru
 #select pelna_nazwa from klient;
 #select data_zamowienia from zamowienie order by data_zamowienia desc limit 10;
 #select imie, pensja from pracownik order by pensja limit 5;
-#select nazwa_towaru,cena_zakupu from towar where nazwa_towaru not like 'A%'order by cena_zakupu desc limit 10;
+#select nazwa_towaru,cena_zakupu from towar where nazwa_towaru not like '%A%'order by cena_zakupu desc limit 10;
+#create table towary_powyzej_100 select * from towar where cena_zakupu>100;
+#create table pracownik_50_plus like pracownik select * from pracownik where GETDATE()-data_urodzenia>50;
